@@ -13,6 +13,7 @@ public class Author extends BaseEntity{
     private String lastName;
 
     public Author() {
+
     }
 
     @Column(name = "first_name")

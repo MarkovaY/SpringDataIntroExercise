@@ -6,5 +6,5 @@ import java.io.IOException;
 
 @Service
 public interface CategoryService {
-    public void seedCategory() throws IOException;
+    void seedCategories() throws IOException;
 }
