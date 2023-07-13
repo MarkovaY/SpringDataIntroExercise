@@ -5,6 +5,6 @@ import org.springframework.stereotype.Service;
 import java.io.IOException;
 
 
-public interface CategoryService {
-    void seedCategories() throws IOException;
+public interface AuthorService {
+    void seedAuthors() throws IOException;
 }

@@ -1,7 +1,8 @@
-package bg.softuni.springdataintroexercise.service;
+package bg.softuni.springdataintroexercise.service.impl;
 
 import bg.softuni.springdataintroexercise.model.entity.Category;
 import bg.softuni.springdataintroexercise.repository.CategoryRepository;
+import bg.softuni.springdataintroexercise.service.CategoryService;
 import org.springframework.stereotype.Service;
 
 import java.io.IOException;
