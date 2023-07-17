@@ -28,16 +28,28 @@ public class CommandLineRunnerImpl implements CommandLineRunner {
 // Seed all the data.
         seedData();
 // Print all book titles after year 2000.
+
 //        printAllBooksAfterYear(2000);
 
 // Get all authors with at least one book with a release date before 1990.
 // Print their first name and last name.
+
 //        printAllAuthorsNamesWithBookBeforeYear(1990);
 
 // Get all authors, ordered by the number of their books (descending).
 // Print their first name, last name and book count.
-        printAllAuthorsByNumberOfBooksAndBookCount();
 
+//        printAllAuthorsByNumberOfBooksAndBookCount();
+
+//        Get all books from author George Powell, ordered by their release date (descending), then by book title (ascending).
+//        Print the book's title, release date and copies.
+
+        printAllBooksByAuthorName("George", "Powell");
+
+    }
+
+    private void printAllBooksByAuthorName(String firstName, String lastName) {
+        bookService.findAllBooksByAuthorFirstAndLastName(firstName, lastName).forEach(System.out::println);
     }
 
     private void printAllAuthorsByNumberOfBooksAndBookCount() {

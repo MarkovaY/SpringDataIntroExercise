@@ -12,4 +12,6 @@ public interface BookService {
     List<Book> findAllBooksAfterGivenYear(int year);
 
     List<String> findAllAuthorsWithBooksBeforeYear(int year);
+
+    List<String> findAllBooksByAuthorFirstAndLastName(String firstName, String lastName);
 }

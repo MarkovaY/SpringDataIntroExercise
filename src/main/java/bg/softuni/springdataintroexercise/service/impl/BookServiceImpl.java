@@ -65,6 +65,14 @@ public class BookServiceImpl implements BookService {
                 .collect(Collectors.toList());
     }
 
+    @Override
+    public List<String> findAllBooksByAuthorFirstAndLastName(String firstName, String lastName) {
+        return bookRepository.findAllByAuthor_FirstNameAndAuthor_LastNameOrderByReleaseDateDescTitle(firstName, lastName)
+                .stream()
+                .map(book -> String.format("%s %s %d", book.getTitle(), book.getReleaseDate(), book.getCopies()))
+                .collect(Collectors.toList());
+    }
+
     private Book createBookFromBooksData(String[] booksData) {
 
         EditionType editionType = EditionType.values()[Integer.parseInt(booksData[0])];
