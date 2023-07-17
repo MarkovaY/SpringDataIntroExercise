@@ -1,9 +1,6 @@
 package bg.softuni.springdataintroexercise.model.entity;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.OneToMany;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 
 import java.util.Set;
 
@@ -44,7 +41,7 @@ public class Author extends BaseEntity{
         this.lastName = lastName;
     }
 
-    @OneToMany(mappedBy = "author")
+    @OneToMany(mappedBy = "author", fetch = FetchType.EAGER)
     public Set<Book> getBooks() {
         return books;
     }
