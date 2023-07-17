@@ -11,4 +11,6 @@ import java.util.List;
 public interface BookRepository extends JpaRepository<Book, Long> {
 
     List<Book> findAllByReleaseDateAfter(LocalDate releaseDateAfter);
+
+    List<Book> findAllByReleaseDateBefore(LocalDate releaseDateBefore);
 }

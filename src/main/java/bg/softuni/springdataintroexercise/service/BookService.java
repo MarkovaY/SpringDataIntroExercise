@@ -10,4 +10,6 @@ public interface BookService {
     void seedBooks() throws IOException;
 
     List<Book> findAllBooksAfterGivenYear(int year);
+
+    List<String> findAllAuthorsWithBooksBeforeYear(int year);
 }

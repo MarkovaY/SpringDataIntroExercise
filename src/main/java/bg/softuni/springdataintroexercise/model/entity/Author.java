@@ -2,7 +2,10 @@ package bg.softuni.springdataintroexercise.model.entity;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
+
+import java.util.Set;
 
 @Entity
 @Table(name = "authors")
@@ -11,6 +14,8 @@ public class Author extends BaseEntity{
     private String firstName;
 
     private String lastName;
+
+    private Set<Book> books;
 
     public Author() {
 
@@ -37,5 +42,14 @@ public class Author extends BaseEntity{
 
     public void setLastName(String lastName) {
         this.lastName = lastName;
+    }
+
+    @OneToMany(mappedBy = "author")
+    public Set<Book> getBooks() {
+        return books;
+    }
+
+    public void setBooks(Set<Book> books) {
+        this.books = books;
     }
 }

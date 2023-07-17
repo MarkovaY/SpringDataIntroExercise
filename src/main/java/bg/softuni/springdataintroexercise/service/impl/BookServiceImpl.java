@@ -55,6 +55,16 @@ public class BookServiceImpl implements BookService {
         return bookRepository.findAllByReleaseDateAfter(LocalDate.of(year, 12,31));
     }
 
+    @Override
+    public List<String> findAllAuthorsWithBooksBeforeYear(int year) {
+
+        return bookRepository.findAllByReleaseDateBefore(LocalDate.of(year, 1, 1))
+                .stream()
+                .map(book -> String.format("%s %s", book.getAuthor().getFirstName(), book.getAuthor().getLastName()))
+                .distinct()
+                .collect(Collectors.toList());
+    }
+
     private Book createBookFromBooksData(String[] booksData) {
 
         EditionType editionType = EditionType.values()[Integer.parseInt(booksData[0])];

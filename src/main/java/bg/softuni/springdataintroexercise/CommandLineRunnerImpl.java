@@ -25,12 +25,30 @@ public class CommandLineRunnerImpl implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
+// Seed all the data.
         seedData();
+// Print all book titles after year 2000.
+//        printAllBooksAfterYear(2000);
 
-        printAllBooksAfter2000(2000);
+// Get all authors with at least one book with a release date before 1990.
+// Print their first name and last name.
+//        printAllAuthorsNamesWithBookBeforeYear(1990);
+
+// Get all authors, ordered by the number of their books (descending).
+// Print their first name, last name and book count.
+        printAllAuthorsByNumberOfBooksAndBookCount();
+
     }
 
-    private void printAllBooksAfter2000(int year) {
+    private void printAllAuthorsByNumberOfBooksAndBookCount() {
+        authorService.getAllAuthorsOrderedByCountOFBooks().forEach(System.out::println);
+    }
+
+    private void printAllAuthorsNamesWithBookBeforeYear(int year) {
+        bookService.findAllAuthorsWithBooksBeforeYear(year).forEach(System.out::println);
+    }
+
+    private void printAllBooksAfterYear(int year) {
         bookService.findAllBooksAfterGivenYear(year).stream().map(Book::getTitle).forEach(System.out::println);
     }
 
