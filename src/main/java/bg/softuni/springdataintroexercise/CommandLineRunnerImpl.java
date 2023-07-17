@@ -1,5 +1,6 @@
 package bg.softuni.springdataintroexercise;
 
+import bg.softuni.springdataintroexercise.model.entity.Book;
 import bg.softuni.springdataintroexercise.service.AuthorService;
 import bg.softuni.springdataintroexercise.service.BookService;
 import bg.softuni.springdataintroexercise.service.CategoryService;
@@ -25,6 +26,12 @@ public class CommandLineRunnerImpl implements CommandLineRunner {
     @Override
     public void run(String... args) throws Exception {
         seedData();
+
+        printAllBooksAfter2000(2000);
+    }
+
+    private void printAllBooksAfter2000(int year) {
+        bookService.findAllBooksAfterGivenYear(year).stream().map(Book::getTitle).forEach(System.out::println);
     }
 
     private void seedData() throws IOException {
