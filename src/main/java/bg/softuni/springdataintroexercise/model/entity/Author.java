@@ -15,7 +15,6 @@ public class Author extends BaseEntity{
     private Set<Book> books;
 
     public Author() {
-
     }
 
     public Author(String firstName, String lastName) {
