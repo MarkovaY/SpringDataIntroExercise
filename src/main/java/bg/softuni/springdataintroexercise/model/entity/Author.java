@@ -1,7 +1,6 @@
 package bg.softuni.springdataintroexercise.model.entity;
 
 import jakarta.persistence.*;
-
 import java.util.Set;
 
 @Entity
